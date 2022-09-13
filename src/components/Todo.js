@@ -7,18 +7,19 @@ const Todo = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log(dispatch(getAllTodo));
+		dispatch(getAllTodo());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 	return (
 		<div>
 			<h2>Todo App</h2>
-			<h3>{todo.length}</h3>
+			<h3>Total todo data ={todo.length}</h3>
 			{isLoading && <h3>Loading...</h3>}
 			{error && <h3>{error.message}</h3>}
 			<section>
 				{todo &&
 					todo.map((todo) => (
-						<article>
+						<article key={todo.id}>
 							<h4>{todo.id}</h4>
 							<h4>{todo.title}</h4>
 						</article>

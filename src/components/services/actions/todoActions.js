@@ -11,7 +11,6 @@ const getAllTodo = () => async (dispatch) => {
 		const res = await axios.get(
 			'https://jsonplaceholder.typicode.com/todos'
 		);
-		console.log(res.data);
 		dispatch({ type: todoSuccess, payload: res.data });
 	} catch (error) {
 		dispatch({ type: todoFailed, payload: error.messages });
